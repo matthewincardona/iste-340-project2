@@ -1,7 +1,5 @@
 # iste-340-project2
 
-Run the vite server with:
+Run the vite server. Tailwind should automatically start and watch for changes.
 npm run dev
 
-Start the Tailwind service with:
-npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
