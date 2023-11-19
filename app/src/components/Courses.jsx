@@ -36,16 +36,15 @@ const Courses = () => {
   //where all is loaded...
   return (
     <>
-      <h1>Courses</h1>
-      <div>
+      <h1 className="">Courses</h1>
+      <Box className="flex flex-wrap">
         {courses.map((course) => (
-          <li>
+          <div className="w-96 h-96 m-4 backdrop-blur-md bg-[#ffffff30] rounded text-mustard">
             {course.degreeName}
-            <br />
             {course.semester}
-          </li>
+          </div>
         ))}
-      </div>
+      </Box>
     </>
   );
 };

@@ -4,8 +4,17 @@ body {
 .App {
   text-align: center;
   padding: 0 3vw 3vw;
-  background-color: whitesmoke;
+  background-color: #22031f;
+  background-image: url("https://cdn.discordapp.com/attachments/727389170309398599/1175842593767170080/magicpattern-mesh-gradient-1699071530719_1.png?ex=656cb3c0&is=655a3ec0&hm=cb913eecb890aaae97646a8540192eec8a643930206a7b01a4737a7345e11364&");
+  background-size: cover;
+  background-position: 0px -100px;
+  background-attachment: fixed;
 }
+
+* {
+  color: seashell;
+}
+
 .stick {
   text-align: center;
   position: sticky;

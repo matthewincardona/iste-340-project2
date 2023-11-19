@@ -15,6 +15,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* --box-glow: 10px 10px 56px -8px rgba(27, 152, 224); */
 }
 
 a {

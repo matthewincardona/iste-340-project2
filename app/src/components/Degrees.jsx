@@ -37,7 +37,7 @@ const Degrees = () => {
   //where all is loaded...
   return (
     <>
-      <h1>Courses</h1>
+      <h1>Degrees</h1>
       <h3>Undergradute</h3>
       <div>
         {undergraduateDegrees.map((degree) => (
