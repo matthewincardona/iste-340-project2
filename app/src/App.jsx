@@ -4,6 +4,9 @@ import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 //comps
 import People from "./components/People";
+import Degrees from "./components/Degrees";
+import Courses from "./components/Courses";
+import Minors from "./components/Minors";
 
 function App() {
   //var
@@ -11,10 +14,10 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [aboutObj, setAboutObj] = useState();
 
-  //funcitons
+  //functions
   React.useEffect(() => {
     getData("about/").then((returnJson) => {
-      console.log("here", returnJson);
+      // console.log("here", returnJson);
       setAboutObj(returnJson);
       setLoaded(true);
     });
@@ -46,6 +49,12 @@ function App() {
         {/* other components */}
         <hr />
         <People />
+        <hr />
+        <Degrees />
+        <hr />
+        <Courses />
+        <hr />
+        <Minors />
         <hr />
       </section>
     </>
