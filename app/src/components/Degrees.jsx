@@ -37,19 +37,25 @@ const Degrees = () => {
   //where all is loaded...
   return (
     <>
-      <h1>Degrees</h1>
-      <h3>Undergradute</h3>
-      <div>
-        {undergraduateDegrees.map((degree) => (
-          <li>{degree.title}</li>
-        ))}
-      </div>
-      <h3>Graduate</h3>
-      <div>
-        {graduateDegrees.map((degree) => (
-          <li>{degree.title}</li>
-        ))}
-      </div>
+      <Box className="my-20">
+        <h3>Degrees</h3>
+        <Box className="flex flex-row w-full place-content-center gap-16">
+          <div>
+            <h4 className="mb-2">Undergradute</h4>
+
+            {undergraduateDegrees.map((degree) => (
+              <li className="list-none">{degree.title}</li>
+            ))}
+          </div>
+          <div>
+            <h4 className="mb-2">Graduate</h4>
+
+            {graduateDegrees.map((degree) => (
+              <li className="list-none">{degree.title}</li>
+            ))}
+          </div>
+        </Box>
+      </Box>
     </>
   );
 };

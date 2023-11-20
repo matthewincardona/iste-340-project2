@@ -1,20 +1,43 @@
-.peopleList{
-    display:flex;
-    flex-wrap: wrap;
+.peopleList {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.peopleList > *{
-    flex:1 1 200px;
+.peopleListItem {
+  margin: 1em;
+  padding-top: 0em;
+  /* border-radius: 15px; */
+  background-color: #33333380;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  width: 200px;
 }
 
-.peopleListItem{
-    min-height: 250px;
-    margin: 1em;
-    padding-top: 1em;
-    border: 3px solid #ddd;
-    border-radius: 15px;
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  color: #fed766 !important;
 }
 
-.peopleListItem > img{
-    max-width:150px;
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
+  text-decoration: underline !important;
+}
+
+.peopleListItem > img {
+  width: 150px;
+}
+
+.item {
+  color: white !important;
+}
+
+.active {
+  color: #22031f !important;
+}
+
+.ui.segment {
+  background: #00000000;
+  /* background: #e0a1a11a; */
+  backdrop-filter: blur(12px);
 }

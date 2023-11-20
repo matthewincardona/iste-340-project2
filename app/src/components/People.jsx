@@ -1,6 +1,7 @@
 //imports
 import React, { useState } from "react";
 import { Tab } from "semantic-ui-react";
+import Box from "@mui/material/Box";
 import PeopleGroup from "./PeopleGroup";
 import getData from "../utils/getData";
 
@@ -15,8 +16,12 @@ const People = () => {
     {
       menuItem: "Faculty",
       render: () => (
-        <Tab.Pane>
-          <PeopleGroup title="Faculty" pepGroupObj={pepObj.faculty} />
+        <Tab.Pane className="text-white">
+          <PeopleGroup
+            title="Faculty"
+            pepGroupObj={pepObj.faculty}
+            className="text-white"
+          />
         </Tab.Pane>
       ),
     },
@@ -49,9 +54,11 @@ const People = () => {
   //where all is loaded...
   return (
     <>
-      <h1>{pepObj.title}</h1>
-      <h3>{pepObj.subTitle}</h3>
-      <Tab panes={panes} />
+      <Box className="">
+        <h3>{pepObj.title}</h3>
+        <p>{pepObj.subTitle}</p>
+        <Tab panes={panes} />
+      </Box>
     </>
   );
 };

@@ -6,6 +6,7 @@ import "./App.css";
 import People from "./components/People";
 import Degrees from "./components/Degrees";
 import Courses from "./components/Courses";
+import Employment from "./components/Employment";
 // import Minors from "./components/Minors";
 
 function App() {
@@ -26,36 +27,39 @@ function App() {
   if (!loaded)
     return (
       <>
-        <h1>Welcome to the iSchool</h1>
-        <h3>Loading...</h3>
+        <div className="flex flex-col place-content-center">
+          <h1 className="text-white ">Welcome to the iSchool</h1>
+          <h3 className="text-white">Loading...</h3>
+        </div>
       </>
     );
   return (
     <>
-      <section className="stick">
-        <h1>Welcome to the iSchool</h1>
-        <div>menu eventually...</div>
-        {/* menu? */}
-      </section>
-      <section className="App">
-        <section className="About">
-          <h2>{aboutObj.title}</h2>
-          <h3>{aboutObj.description}</h3>
+      <nav className="flex justify-between p-8 px-20 border-b fixed w-full backdrop-blur-md bg-[#00000030] stick">
+        <p className="text-3xl">Welcome to the iSchool</p>
+        <div className="list-none flex flex-row gap-8 place-content-center font-normal ">
+          <li>People</li>
+          <li>Degrees</li>
+          <li>Courses</li>
+        </div>
+      </nav>
+      <section className="App pt-[10rem]">
+        <section className="About mb-20 flex flex-col place-content-center">
+          <h3>{aboutObj.title}</h3>
+          <p>{aboutObj.description}</p>
           <div className="aboutQuote">
             <h5 className="quote">{aboutObj.quote}</h5>
-            <h5>-- {aboutObj.quoteAuthor}</h5>
+            <h5 className="font-bold mt-4">-- {aboutObj.quoteAuthor}</h5>
           </div>
         </section>
-        {/* other components */}
-        <hr />
         <People />
         <hr />
         <Degrees />
         <hr />
         <Courses />
-        <hr />
         {/* <Minors /> */}
         <hr />
+        <Employment />
       </section>
     </>
   );
