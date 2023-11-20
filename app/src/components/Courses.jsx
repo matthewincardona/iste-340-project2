@@ -1,113 +1,119 @@
-import React, { useState, useEffect } from "react";
-import { Icon, Menu, Table } from "semantic-ui-react";
+//imports
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
+import { Tab } from "semantic-ui-react";
 import getData from "../utils/getData";
+import CoursesModal from "./CoursesModal";
 
-const Employment = () => {
-  const [employmentLoaded, setEmploymentLoaded] = useState(false);
-  const [employmentObj, setEmploymentObj] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 50;
+const Courses = () => {
+  //instance vars
+  const [courseLoaded, setcourseLoaded] = useState(false);
+  const [courseObj, setcourseObj] = useState();
 
-  useEffect(() => {
-    getData("employment/").then((json) => {
-      setEmploymentObj(json);
-      setEmploymentLoaded(true);
+  React.useEffect(() => {
+    getData("courses/").then((json) => {
+      setcourseObj(json);
+      setcourseLoaded(true);
     });
   }, []);
 
-  if (!employmentLoaded) {
+  if (!courseLoaded)
     return (
       <>
-        <h1>Employment</h1>
-        <h3>Loading...</h3>
+        <h3>Courses</h3>
+        <h4>Loading...</h4>
       </>
     );
-  }
 
-  const employersData = employmentObj.coopTable.coopInformation;
-  const totalPages = Math.ceil(employersData.length / itemsPerPage);
+  const courses = courseObj;
 
-  // Calculate the index range for the current page
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  // Slice the array to get the current page data
-  const currentEmployersData = employersData.slice(startIndex, endIndex);
-
+  //where all is loaded...
   return (
     <>
       <Box className="my-20">
-        <h3>Employment</h3>
-        <div className="scrollable-table">
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Employer</Table.HeaderCell>
-                <Table.HeaderCell>Degree</Table.HeaderCell>
-                <Table.HeaderCell>City</Table.HeaderCell>
-                <Table.HeaderCell>Term</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {currentEmployersData.map((employerData, index) => (
-                <Table.Row key={index}>
-                  <Table.Cell className="text-black">
-                    {employerData.employer}
-                  </Table.Cell>
-                  <Table.Cell className="text-black">
-                    {employerData.degree}
-                  </Table.Cell>
-                  <Table.Cell className="text-black">
-                    {employerData.city}
-                  </Table.Cell>
-                  <Table.Cell className="text-black">
-                    {employerData.term}
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
-        </div>
-        <div className="pagination">
-          <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="4">
-                <Menu floated="right" pagination>
-                  <Menu.Item
-                    as="a"
-                    icon
-                    onClick={() => setCurrentPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                  >
-                    <Icon name="chevron left" />
-                  </Menu.Item>
-                  {Array.from({ length: totalPages }, (_, i) => (
-                    <Menu.Item
-                      key={i}
-                      as="a"
-                      onClick={() => setCurrentPage(i + 1)}
-                      active={currentPage === i + 1}
-                    >
-                      {i + 1}
-                    </Menu.Item>
-                  ))}
-                  <Menu.Item
-                    as="a"
-                    icon
-                    onClick={() => setCurrentPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                  >
-                    <Icon name="chevron right" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer>
-        </div>
+        <h3>Courses</h3>
+        <Box className="flex flex-wrap place-content-center">
+          {courses.map((course) => (
+            <div className="flex justify-center items-center font-bold w-80 h-32 m-4 backdrop-blur-md bg-[#E0A1A11A]">
+              <CoursesModal {...course} />
+            </div>
+          ))}
+        </Box>
       </Box>
     </>
   );
 };
 
-export default Employment;
+export default Courses;
+
+// import React, { useState, useEffect } from "react";
+// import { Icon, Label, Menu, Table } from "semantic-ui-react";
+// import Box from "@mui/material/Box";
+// import getData from "../utils/getData";
+
+// const Courses = () => {
+//   const [coursesLoaded, setcoursesLoaded] = useState(false);
+//   const [coursesObj, setcoursesObj] = useState();
+
+//   useEffect(() => {
+//     getData("courses/").then((json) => {
+//       setcoursesObj(json);
+//       setcoursesLoaded(true);
+//     });
+//   }, []);
+
+//   if (!coursesLoaded) {
+//     return (
+//       <>
+//         <h1>courses</h1>
+//         <h3>Loading...</h3>
+//       </>
+//     );
+//   }
+
+//   const courses = coursesObj.employers.employerNames;
+
+//   return (
+//     <>
+//       <Box className="my-20">
+//         <h3>Courses</h3>
+//         <Table celled>
+//           <Table.Header>
+//             <Table.Row>
+//               <Table.HeaderCell>Courses</Table.HeaderCell>
+//             </Table.Row>
+//           </Table.Header>
+
+//           <Table.Body>
+//             {courses.map((employer, index) => (
+//               <Table.Row key={index}>
+//                 <Table.Cell>{employer}</Table.Cell>
+//               </Table.Row>
+//             ))}
+//           </Table.Body>
+
+//           <Table.Footer>
+//             <Table.Row>
+//               <Table.HeaderCell colSpan="1">
+//                 <Menu floated="right" pagination>
+//                   <Menu.Item as="a" icon>
+//                     <Icon name="chevron left" />
+//                   </Menu.Item>
+//                   <Menu.Item as="a">1</Menu.Item>
+//                   <Menu.Item as="a">2</Menu.Item>
+//                   <Menu.Item as="a">3</Menu.Item>
+//                   <Menu.Item as="a">4</Menu.Item>
+//                   <Menu.Item as="a" icon>
+//                     <Icon name="chevron right" />
+//                   </Menu.Item>
+//                 </Menu>
+//               </Table.HeaderCell>
+//             </Table.Row>
+//           </Table.Footer>
+//         </Table>
+//       </Box>
+//     </>
+//   );
+// };
+
+// export default Courses;

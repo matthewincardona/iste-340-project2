@@ -26,8 +26,8 @@ const Degrees = () => {
   if (!degLoaded)
     return (
       <>
-        <h1>Our People</h1>
-        <h3>Loading...</h3>
+        <h3>Our People</h3>
+        <h4>Loading...</h4>
       </>
     );
 

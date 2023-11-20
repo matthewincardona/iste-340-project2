@@ -19,8 +19,8 @@ const Employment = () => {
   if (!employmentLoaded) {
     return (
       <>
-        <h3>Employment</h3>
-        <h4>Loading...</h4>
+        <h1>Employment</h1>
+        <h3>Loading...</h3>
       </>
     );
   }

@@ -38,6 +38,11 @@ p {
   font-size: 14px;
 }
 
+nav a {
+  color: white;
+  cursor: pointer;
+}
+
 .ui.right.floated.menu {
   background-color: #00000060;
   margin-top: 1em;
@@ -46,6 +51,27 @@ p {
 .scrollable-table {
   max-height: 400px !important; /* Adjust the max height as needed */
   overflow-y: auto !important;
+}
+
+.ui.table {
+  background-color: #00000000;
+  backdrop-filter: blur(8px);
+}
+
+.css-1sra7t5-MuiTypography-root,
+.css-5lbw0b-MuiTypography-root,
+.css-2ulfj5-MuiTypography-root,
+.css-ahj2mt-MuiTypography-root li {
+  color: white !important;
+  font-weight: 800 !important;
+}
+
+.ui.table thead th {
+  background-color: #ffffffd0;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  width: 11.3rem !important;
 }
 
 .pagination .active {
